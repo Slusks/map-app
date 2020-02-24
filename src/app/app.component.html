@@ -2,19 +2,8 @@
     <h1>Map in Angular</h1>
 
     <!--Map image-->
-    <div (onmousemove)="getCursorPosition(e)"
-         (click)="logCursorPosition(e)"></div>
+        <div (click)="logCursorPosition()" (click)="getCursorPositionX(e)" (click)="getCursorPositionY(e)"></div>
     <img id="map" src="../assets/img/summonersRift.jpg" width="960" height="540" >
-
-    <!--template for map marker-->
- 
-    <!--<img class="markerStyles" *ngFor = "let data of markerData | async"
-    id={{data.id}} src="../assets/img/marker.jpg"   width = '20' height= '20'>-->
-  
-  
-  
-  
-  
   </div>
 
 
@@ -23,10 +12,11 @@
 
 <!--form appears on marker placement-->
 <div class="form-popup" id="myForm">
-  <form class="form-container" 
-        #mapMarker="ngForm"
-        (ngSubmit)="markerFormSubmit(mapMarker.value, getCursorPosition(e))">
-    <input type="text" class="form-control" placeholder="Enter Description" name="description" ngModel>
+  <form class="form-container" #mapMarker="ngForm" (ngSubmit)="markerFormSubmit(mapMarker.value)">
+    <input type="text"   class="form-control" placeholder="Enter Description" name="description" ngModel>
+    <input type="hidden" class="form-control" [(ngModel)]="xPosition" name="xPosition">
+    <input type="hidden" class="form-control" [(ngModel)]="yPosition" name="yPosition">
+
     <button type="submit" class="btn btn-sm">Submit</button>
     <button type="button" class="btn cancel btn-sm" (click)="closeForm()">Close</button>
     <button type="button" class="btn delete btn-sm">Delete</button>
