@@ -1,18 +1,31 @@
-
   <div class="jumbotron" id="map container" style="position: relative">
     <h1>Map in Angular</h1>
+
+    <!--Map image-->
     <div (onmousemove)="getCursorPosition(e)"
          (click)="logCursorPosition(e)"></div>
     <img id="map" src="../assets/img/summonersRift.jpg" width="960" height="540" >
+
+    <!--template for map marker-->
+ 
+    <!--<img class="markerStyles" *ngFor = "let data of markerData | async"
+    id={{data.id}} src="../assets/img/marker.jpg"   width = '20' height= '20'>-->
+  
+  
+  
+  
+  
   </div>
 
 
 
 
 
-<!--form template that I want to appear when I insert a marker-->
+<!--form appears on marker placement-->
 <div class="form-popup" id="myForm">
-  <form action="/action_page.php" class="form-container" #mapMarker (ngSubmit)="updateMarkerJSON(mapMarker.value)">
+  <form class="form-container" 
+        #mapMarker="ngForm"
+        (ngSubmit)="markerFormSubmit(mapMarker.value, getCursorPosition(e))">
     <input type="text" class="form-control" placeholder="Enter Description" name="description" ngModel>
     <button type="submit" class="btn btn-sm">Submit</button>
     <button type="button" class="btn cancel btn-sm" (click)="closeForm()">Close</button>
