@@ -1,9 +1,9 @@
   <div class="jumbotron" id="map container" style="position: relative">
     <h1>Map in Angular</h1>
+    {{xPosition}}
 
     <!--Map image-->
-    <div (click)="logCursorPosition()" (click)="getCursorPositionX(e)" (click)="getCursorPositionY(e)"></div>
-    <img id="map" src="../assets/img/summonersRift.jpg" width="960" height="540" >
+    <img (click)="logCursorPosition($event)" id="map" src="../assets/img/USA.jpg" width="960" height="540" >
   </div>
 
 <!--form appears on marker placement-->

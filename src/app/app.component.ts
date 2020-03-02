@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { DndDatabaseService } from './dnd-database.service';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule }   from '@angular/forms';
 import { markerData } from './markerData';
 
 @Component({
@@ -11,27 +10,22 @@ import { markerData } from './markerData';
 })
 export class AppComponent implements OnInit {
   title = 'map-app';
-  
-  
-
-  constructor(private dndDatabaseService: DndDatabaseService,
-              private httpClient: HttpClient,
-              private http: HttpClient){};
-  
-  iconDescription:Object={};
   xPosition:number;
   yPosition:number;
-
   
+  constructor(
+    private dndDatabaseService: DndDatabaseService,
+    private http: HttpClient
+    ){};
   
+  iconDescription:Object={};
 
- 
   ngOnInit(){
       const iconImage = new Image();
       iconImage.src = "../assets/img/marker.jpg"
       
       //subscribes to the JSON file
-      this.httpClient.get<markerData[]>('http://localhost:3000/mapMarker')
+      this.http.get<markerData[]>('http://localhost:3000/mapMarker')
       .subscribe(posts => {
           posts.forEach(post=>{
                 setMarker(post)})})      
@@ -51,32 +45,17 @@ export class AppComponent implements OnInit {
         document.getElementById('map container').appendChild(img);
       }
 
-      //Listen for map events
-      var map = document.getElementById('map')
-      map.addEventListener("click", this.logCursorPosition);
-      map.addEventListener("click", this.getCursorPositionX)
-      map.addEventListener("click", this.getCursorPositionY)
-
-
-  }
-
-  getCursorPositionX(e){
-    var x = (e.clientX)-20;
-    console.log("x:", x)
-    return this.xPosition = x;
-  }
-
-  getCursorPositionY(e){
-    var y = (e.clientY)-40;
-    console.log("y:", y)
-    return this.yPosition = y;
   }
 
   logCursorPosition(e){
       //Get Cursor Location
       var x = e.clientX;
+      this.xPosition = x - 40;
       var y = e.clientY;
+      this.yPosition = y - 40;
       console.log("X Position "+ x + " Y Position" +y);
+      console.log(this.xPosition);
+      
       //Place Icon
       var img = document.createElement("img");
       img.src = "../assets/img/marker.jpg";
@@ -102,8 +81,8 @@ closeForm() {
   markerFormSubmit(marker){
       this.iconDescription ={
         "description": marker.description,
-        "xPos":this.xPosition,
         "yPos":this.yPosition,
+        "xPos":this.xPosition
       }
     this.http.post("http://localhost:3000/mapMarker", this.iconDescription).subscribe((po:Response) => {console.log("po",po)})
     document.getElementById("myForm").style.display = "none";
