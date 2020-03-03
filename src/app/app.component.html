@@ -1,15 +1,23 @@
   <div class="jumbotron" id="map container" style="position: relative">
     <h1>Map in Angular</h1>
-    {{xPosition}}
+
+    
+  <div class="container" id="mapContainer">
+    <p>Globe icon:     
+      <i class="fas fa-map-marker-alt"></i>      
+    </p>
+
 
     <!--Map image-->
     <img (click)="logCursorPosition($event)" id="map" src="../assets/img/USA.jpg" width="960" height="540" >
   </div>
 
+
+
 <!--form appears on marker placement-->
 <div class="form-popup" id="myForm">
   <form class="form-container" #mapMarker="ngForm" (ngSubmit)="markerFormSubmit(mapMarker.value)">
-    <input type="text"   class="form-control" placeholder="Enter Description" name="description" ngModel>
+    <input type="text" required minlength="3" class="form-control" placeholder="Enter Description" name="description" ngModel>
     <button type="submit" class="btn btn-sm">Submit</button>
     <button type="button" class="btn cancel btn-sm" (click)="closeForm()">Close</button>
     <button type="button" class="btn delete btn-sm">Delete</button>

@@ -8,21 +8,39 @@
   ],
   "mapMarker": [
     {
-      "description": "Example",
-      "xPos": 742,
-      "yPos": 404,
-      "id": 1
+      "description": "charlotte",
+      "yPos": 399,
+      "xPos": 723,
+      "id": 2
     },
     {
-      "description": "Example2",
-      "xPos": 500,
-      "yPos": 500,
+      "description": "Tulsa",
+      "yPos": 404,
+      "xPos": 444,
       "id": 3
     },
     {
-      "description": "testAG",
-      "yPos": 248,
-      "xPos": 221,
+      "description": "Milford",
+      "yPos": 252,
+      "xPos": 819,
+      "id": 4
+    },
+    {
+      "description": "",
+      "yPos": 299,
+      "xPos": 507,
+      "id": 5
+    },
+    {
+      "description": "aa",
+      "yPos": 276,
+      "xPos": 350,
+      "id": 6
+    },
+    {
+      "description": "wyoming",
+      "yPos": 234,
+      "xPos": 344,
       "id": 7
     }
   ]

@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DndDatabaseService } from './dnd-database.service';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +18,9 @@ import { DndDatabaseService } from './dnd-database.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     DndDatabaseService
