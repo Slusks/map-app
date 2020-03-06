@@ -1,0 +1,17 @@
+<div class="container">
+<i class="fas fa-globe-americas fa-5x" (onmouseover)=displayCard() id="icon"></i>
+</div>
+
+<div class="popup" (onclick)="displayCard()">"Cleek Mee"
+  <span class="popuptext" id="myPopup">Example text!</span>
+</div>
+
+
+
+<div class="card-popup" id="card-popup" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">Marker Description</p>
+      <button type="button" class="btn cancel btn-sm" (click)="closeForm()">Close</button>
+      <button type="button" class="btn delete btn-sm">Delete</button>
+    </div>
+  </div>

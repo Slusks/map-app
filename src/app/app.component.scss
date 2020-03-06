@@ -1,8 +1,9 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
+* {font-display: block;}
 
-#mapContainer{
-  margin-left:50px;
+h1{
+  text-align: center;
 }
 
 
@@ -24,8 +25,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .form-popup {
   display: none;
   position:fixed;
-  
-
   z-index: 9;
 }
 
@@ -80,10 +79,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
   opacity: 1;
 }
 
+#mapContainer{
+  background-color: grey;
+  text-align: center;
+  vertical-align: middle;
+  font-display: block;
+}
+
+
 #tooltip {
   min-height: 30px;
   min-width: 50px;
   color: whitesmoke;
   background-color: black;
+}
 
+#bodyContainer {
+  font-display:block;
+  text-align: center;
 }

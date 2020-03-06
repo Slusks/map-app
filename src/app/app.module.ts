@@ -8,11 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { DndDatabaseService } from './dnd-database.service';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MarkerCardComponent } from './marker-card/marker-card.component'
 
 @NgModule({
   declarations: [
     AppComponent,
+    MarkerCardComponent,
   ],
   imports: [
     BrowserModule,
